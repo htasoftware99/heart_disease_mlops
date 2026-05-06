@@ -1,0 +1,15 @@
+artifacts
+config/__pycache__
+heart_disease_mlops.egg-info
+infrastructure/.terraform
+infrastructure/.terraform.lock.hcl
+infrastructure/heart-disease-gcp-key.json
+infrastructure/terraform.tfstate
+logs
+mlruns
+notebooks/saved_model
+notebooks/train.csv
+src/__pycache__
+utils/__pycache__
+venv
+mlflow.db

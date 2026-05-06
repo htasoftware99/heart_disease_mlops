@@ -1,0 +1,8 @@
+data_ingestion:
+  bucket_name : "heart_disease_bucket_neat_chain_464913"
+  bucket_file_name : "heart_disease_data.csv"
+  train_ratio : 0.8
+
+data_processing:
+  target_column : "target"
+  ohe_columns : ["cp", "slope", "thal"]

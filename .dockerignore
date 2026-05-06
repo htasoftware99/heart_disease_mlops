@@ -1,0 +1,17 @@
+**/__pycache__
+*.pyc
+*.pyo
+*.pyd
+artifacts
+mlruns
+logs
+mlflow.db
+heart_disease_mlops.egg-info
+infrastructure/.terraform
+infrastructure/.terraform.lock.hcl
+infrastructure/heart-disease-gcp-key.json
+infrastructure/terraform.tfstate
+notebooks/saved_model
+notebooks/train.csv
+venv
+.dvc

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Heart Disease Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+
+<div class="wrapper">
+
+    <!-- ── HEADER ── -->
+    <header>
+        <div class="header-eyebrow">AI-Powered Diagnostic Tool</div>
+        <h1>Heart Disease<br><em>Risk Prediction</em></h1>
+        <p class="header-sub">
+            Enter the patient's clinical data below to receive an instant prediction.
+        </p>
+    </header>
+
+    <!-- ── FORM CARD ── -->
+    <div class="card">
+        <form method="POST" action="/">
+
+            <!-- PATIENT INFO -->
+            <div class="section-label">Patient Information</div>
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="age">Age <span>(years)</span></label>
+                    <input type="number" id="age" name="age"
+                           min="1" max="120" step="1"
+                           placeholder="e.g. 54" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="sex">Sex</label>
+                    <div class="select-wrap">
+                        <select id="sex" name="sex" required>
+                            <option value="" disabled selected>Select…</option>
+                            <option value="1">Male</option>
+                            <option value="0">Female</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- CLINICAL MEASUREMENTS -->
+            <div class="section-label">Clinical Measurements</div>
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="trestbps">Resting Blood Pressure <span>(mmHg)</span></label>
+                    <input type="number" id="trestbps" name="trestbps"
+                           min="50" max="300" step="1"
+                           placeholder="e.g. 130" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="chol">Serum Cholesterol <span>(mg/dl)</span></label>
+                    <input type="number" id="chol" name="chol"
+                           min="50" max="700" step="1"
+                           placeholder="e.g. 250" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="thalach">Max Heart Rate Achieved</label>
+                    <input type="number" id="thalach" name="thalach"
+                           min="50" max="250" step="1"
+                           placeholder="e.g. 150" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="oldpeak">ST Depression <span>(exercise vs rest)</span></label>
+                    <input type="number" id="oldpeak" name="oldpeak"
+                           min="0" max="10" step="0.1"
+                           placeholder="e.g. 1.5" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="ca">Major Vessels Coloured <span>(0–3)</span></label>
+                    <div class="select-wrap">
+                        <select id="ca" name="ca" required>
+                            <option value="" disabled selected>Select…</option>
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="fbs">Fasting Blood Sugar &gt; 120 mg/dl</label>
+                    <div class="select-wrap">
+                        <select id="fbs" name="fbs" required>
+                            <option value="" disabled selected>Select…</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- SYMPTOMS & ECG -->
+            <div class="section-label">Symptoms &amp; ECG</div>
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="cp">Chest Pain Type</label>
+                    <div class="select-wrap">
+                        <select id="cp" name="cp" required>
+                            <option value="" disabled selected>Select…</option>
+                            <option value="0">0 — Typical Angina</option>
+                            <option value="1">1 — Atypical Angina</option>
+                            <option value="2">2 — Non-Anginal Pain</option>
+                            <option value="3">3 — Asymptomatic</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="restecg">Resting ECG Results</label>
+                    <div class="select-wrap">
+                        <select id="restecg" name="restecg" required>
+                            <option value="" disabled selected>Select…</option>
+                            <option value="0">0 — Normal</option>
+                            <option value="1">1 — ST-T Wave Abnormality</option>
+                            <option value="2">2 — Left Ventricular Hypertrophy</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="exang">Exercise-Induced Angina</label>
+                    <div class="select-wrap">
+                        <select id="exang" name="exang" required>
+                            <option value="" disabled selected>Select…</option>
+                            <option value="1">Yes</option>
+                            <option value="0">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="slope">Slope of Peak Exercise ST Segment</label>
+                    <div class="select-wrap">
+                        <select id="slope" name="slope" required>
+                            <option value="" disabled selected>Select…</option>
+                            <option value="0">0 — Upsloping</option>
+                            <option value="1">1 — Flat</option>
+                            <option value="2">2 — Downsloping</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="thal">Thalassemia</label>
+                    <div class="select-wrap">
+                        <select id="thal" name="thal" required>
+                            <option value="" disabled selected>Select…</option>
+                            <option value="1">1 — Normal</option>
+                            <option value="2">2 — Fixed Defect</option>
+                            <option value="3">3 — Reversible Defect</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- SUBMIT -->
+            <button type="submit" class="btn-submit">Run Prediction →</button>
+
+        </form>
+
+        <!-- ── RESULT ── -->
+        {% if result is not none %}
+            {% if result == 1 %}
+            <div class="result-card positive">
+                <div class="result-icon">🫀</div>
+                <div class="result-body">
+                    <h2>Heart Disease Detected</h2>
+                    <p>
+                        The model predicts a <strong>high likelihood of heart disease</strong>.
+                        Please consult a cardiologist for a comprehensive clinical evaluation.
+                    </p>
+                </div>
+            </div>
+            {% else %}
+            <div class="result-card negative">
+                <div class="result-icon">✅</div>
+                <div class="result-body">
+                    <h2>No Heart Disease Detected</h2>
+                    <p>
+                        The model predicts <strong>no significant risk</strong> of heart disease
+                        based on the provided data. Routine check-ups are still recommended.
+                    </p>
+                </div>
+            </div>
+            {% endif %}
+        {% endif %}
+
+        <!-- ── ERROR ── -->
+        {% if error %}
+        <div class="error-card">{{ error }}</div>
+        {% endif %}
+
+    </div><!-- /.card -->
+
+    <footer>
+        Heart Disease Prediction · For research &amp; educational use only · Not a medical device
+    </footer>
+
+</div><!-- /.wrapper -->
+
+</body>
+</html>
