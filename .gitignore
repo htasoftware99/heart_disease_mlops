@@ -5,6 +5,7 @@ infrastructure/.terraform
 infrastructure/.terraform.lock.hcl
 infrastructure/heart-disease-gcp-key.json
 infrastructure/terraform.tfstate
+infrastructure/terraform.tfstate.backup
 logs
 mlruns
 notebooks/saved_model

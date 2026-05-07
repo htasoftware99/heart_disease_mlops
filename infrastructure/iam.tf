@@ -4,7 +4,7 @@ resource "google_service_account" "heart_disease" {
 }
 
 resource "google_project_iam_member" "ht_storage_admin" {
-  project = "neat-chain-464913-k3" 
+  project = "neat-chain-464913-k3"
   role    = "roles/storage.admin"
   member  = "serviceAccount:${google_service_account.heart_disease.email}"
 }
