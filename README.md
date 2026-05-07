@@ -2,6 +2,12 @@
 
 A comprehensive, production ready MLOps system for predicting heart disease using clinical patient data. This project integrates the entire machine learning lifecycle from data ingestion and versioning to cloud deployment and automated CI/CD pipelines.
 
+## 🏗️ System Architecture
+
+<p align="center">
+  <img src="structure.png" width="700"/>
+</p>
+
 ## 🌟 Key Features
 
 - **End-to-End Pipeline:** Automated data ingestion, feature engineering, and model training via DVC.
