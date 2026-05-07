@@ -14,3 +14,5 @@ src/__pycache__
 utils/__pycache__
 venv
 mlflow.db
+kubectl
+kubectl.sha256

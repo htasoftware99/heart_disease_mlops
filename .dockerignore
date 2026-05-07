@@ -16,3 +16,5 @@ notebooks/saved_model
 notebooks/train.csv
 venv
 .dvc
+kubectl
+kubectl.sha256
